@@ -1,32 +1,40 @@
+/* Обнуляємо відступи, щоб не було зайвої прокрутки */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-}
-
-.main-title {
-    text-align: center;
-    margin-bottom: 30px;
+    padding: 0;
+    font-family: Arial, sans-serif;
     color: #333;
 }
 
-.grid-container {
-    font-size: 0; 
-    max-width: 1000px;
-    margin: 0 auto;
+/* Головний заголовок сторінки */
+.main-title {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    height: 80px; 
+    box-sizing: border-box;
 }
 
+/* Контейнер для 4 блоків */
+.grid-container {
+    font-size: 0; /* Прибираємо пробіли між inline-block елементами */
+    width: 100vw;
+}
+
+/* Налаштування блоків */
 .grid-item {
     display: inline-block;
     vertical-align: top;
     width: 50%;
-    height: 50vh;
+    min-width: 370px;
+    height: calc(50vh - 40px); /* 50% висоти екрана мінус половина заголовка */
+    font-size: 16px; /* Повертаємо нормальний шрифт для тексту */
+    padding: 4%; 
     box-sizing: border-box; 
-    padding: 30px 40px;
-    border: 2px solid #e0a0a0;
-    font-size: 16px;
+    border: 2px solid #e63946; /* Червона рамочка блоків */
 }
 
+/* Прибираємо подвійні червоні рамки між блоками на стиках */
 .grid-item:nth-child(even) {
     border-left: none;
 }
@@ -34,43 +42,50 @@ body {
     border-top: none;
 }
 
+/* Заголовки всередині блоків */
 .grid-item h2 {
     font-size: 18px;
-    color: #333;
+    margin-top: 0;
     margin-bottom: 20px;
 }
 
+/* Цифри в кружечках */
 .num {
     display: inline-block;
-    width: 25px;
-    height: 25px;
-    border: 2px solid #e0a0a0;
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #e63946; /* Червона рамочка кружечка */
+    border-radius: 50%; /* Робить ідеальне коло */
     text-align: center;
-    line-height: 25px;
-    margin-right: 10px;
-    color: #333;
+    line-height: 30px; /* Центрує цифру по вертикалі */
+    margin-right: 15px; /* Відступ від кружечка до тексту */
+    color: #e63946;
     font-weight: bold;
 }
 
+/* Налаштування списків */
 .grid-item ul {
-    list-style-type: none;
-    padding-left: 0;
+    /* Зсуваємо список вправо */
+    padding-left: 50px; 
+    margin-top: 0;
+    list-style-type: none; /* ВИМИКАЄМО стандартні чорні крапки */
 }
 
 .grid-item li {
     margin-bottom: 10px;
-    position: relative;
-    padding-left: 15px;
+    line-height: 1.4;
+    position: relative; /* Необхідно для правильного розміщення нашої рисочки */
 }
 
+/* Створюємо рисочку замість крапки через псевдоелемент */
 .grid-item li::before {
-    content: "-"; 
+    content: "-"; /* Додаємо сам символ тире */
     position: absolute;
-    left: 0;
-    color: inherit;
+    left: -15px; /* Виносимо тире трохи лівіше від початку тексту */
+    color: inherit; /* Рисочка автоматично братиме колір тексту (буде червоною для парних) */
 }
 
+/* Парні пункти списку пофарбовані в червоний */
 .grid-item li:nth-child(even) {
-    color: red;
+    color: #e63946; 
 }
