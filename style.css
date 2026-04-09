@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.grid-container {
+    font-size: 0; 
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    height: 50vh;
+    box-sizing: border-box; 
+    padding: 30px 40px;
+    border: 2px solid #e0a0a0;
+    font-size: 16px;
+}
+
+.grid-item:nth-child(even) {
+    border-left: none;
+}
+.grid-item:nth-child(n+3) {
+    border-top: none;
+}
+
+.grid-item h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.num {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #e0a0a0;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.grid-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.grid-item li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.grid-item li::before {
+    content: "-"; 
+    position: absolute;
+    left: 0;
+    color: inherit;
+}
+
+.grid-item li:nth-child(even) {
+    color: red;
+}
