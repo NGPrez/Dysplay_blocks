@@ -68,16 +68,16 @@ body {
     /* Зсуваємо список вправо */
     padding-left: 50px; 
     margin-top: 0;
-    list-style-type: none; /* ВИМИКАЄМО стандартні чорні крапки */
+    list-style-type: none;
 }
 
 .grid-item li {
     margin-bottom: 10px;
     line-height: 1.4;
-    position: relative; /* Необхідно для правильного розміщення нашої рисочки */
+    position: relative;
 }
 
-/* Створюємо рисочку замість крапки через псевдоелемент */
+
 .grid-item li::before {
     content: "-"; /* Додаємо сам символ тире */
     position: absolute;
